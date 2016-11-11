@@ -270,3 +270,4 @@ Makefile
 *.dump
 *.out
 *.exe
+romaji2kana_sample
