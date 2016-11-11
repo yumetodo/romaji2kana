@@ -6,17 +6,6 @@
 #include "romaji2kana.h"
 /**
 * @brief 文字列が文字を持っているか調べます。
-* @param str 対象文字列へのポインタ
-* @return false: nullptrか空白文字のみの文字列 true:それ以外
-*/
-static inline bool str_has_char(const char *str) {
-	if (NULL == str) return false;
-	bool ret = false;
-	for (; !ret && *str != '\0'; str++) ret = (*str != ' ');
-	return ret;
-}
-/**
-* @brief 文字列が文字を持っているか調べます。
 * @param io 書き換えるbool型変数へのポインタ、呼び出し後はポインタが指す変数にnew_valueが代入される
 * @param new_value 新しい値
 * @return ioが指すbool変数がもともと持っていた値
