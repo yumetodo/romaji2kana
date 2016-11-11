@@ -260,6 +260,13 @@ test/5/
 # Visual Studio Code
 .vscode/
 
+# CMake
+CMakeFiles/
+*.cmake
+CMakeCache.txt
+Makefile
+
 # Other
 *.dump
 *.out
+*.exe
