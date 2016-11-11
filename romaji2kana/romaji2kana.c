@@ -85,9 +85,11 @@ static inline char_cvt_error_t char_cvt_process_consonants_next_1(
 	}
 	const size_t table_pos[] = { char_cvt_is_consonants_next_1(read_ptr[0][0]), char_cvt_is_vowels(read_ptr[0][1]) };
 	if (SIZE_MAX == table_pos[0] || SIZE_MAX == table_pos[1]) return CHAR_CVT_NO_CONVERSION;
-	const size_t write_len = strlen(char_cvt_table_01[table_pos[0]][table_pos[1]]);//うまくやればコンパイル時定数にできそうだけど、メモリー律速になりかねないのでやらない
+	const char* const write_str = char_cvt_table_01[table_pos[0]][table_pos[1]];
+	if (nullptr == write_str)  return CHAR_CVT_NO_CONVERSION;
+	const size_t write_len = strlen(write_str);//うまくやればコンパイル時定数にできそうだけど、メモリー律速になりかねないのでやらない
 	if (!char_cvt_check_range(write_ptr[0], write_end, write_len)) return CHAR_CVT_NOT_ENOUGH_WRITE_BUFFER;
-	memcpy(write_ptr[0], char_cvt_table_01[table_pos[0]][table_pos[1]], write_len);//NULL文字はコピーしない
+	memcpy(write_ptr[0], write_str, write_len);//NULL文字はコピーしない
 																				   //iterate pointer
 	read_ptr[0] += 2;
 	write_ptr[0] += write_len;
@@ -148,6 +150,7 @@ static inline char_cvt_error_t char_cvt_process_consonants_next_1y(
 	const size_t table_pos[] = { char_cvt_is_consonants_next_1y(read_ptr[0][0]), char_cvt_is_vowels(read_ptr[0][((has_y) ? 2 : 1)]) };
 	if (SIZE_MAX == table_pos[0] || SIZE_MAX == table_pos[1]) return CHAR_CVT_NO_CONVERSION;
 	const char* const write_str = (has_y) ? char_cvt_table_1y_y[table_pos[0]][table_pos[1]] : char_cvt_table_1y[table_pos[0]][table_pos[1]];
+	if (nullptr == write_str)  return CHAR_CVT_NO_CONVERSION;
 	const size_t write_len = strlen(write_str);//うまくやればコンパイル時定数にできそうだけど、メモリー律速になりかねないのでやらない
 	if (!char_cvt_check_range(write_ptr[0], write_end, write_len)) return CHAR_CVT_NOT_ENOUGH_WRITE_BUFFER;
 	memcpy(write_ptr[0], write_str, write_len);//NULL文字はコピーしない
@@ -209,6 +212,7 @@ static inline char_cvt_error_t char_cvt_process_consonants_next_1yh(
 	const char* const write_str = (has_h) ? char_cvt_table_1yh_h[table_pos[0]][table_pos[1]]
 		: (has_y) ? char_cvt_table_1yh_y[table_pos[0]][table_pos[1]]
 		: char_cvt_table_1yh[table_pos[0]][table_pos[1]];
+	if(nullptr == write_str)  return CHAR_CVT_NO_CONVERSION;
 	const size_t write_len = strlen(write_str);//うまくやればコンパイル時定数にできそうだけど、メモリー律速になりかねないのでやらない
 	if (!char_cvt_check_range(write_ptr[0], write_end, write_len)) return CHAR_CVT_NOT_ENOUGH_WRITE_BUFFER;
 	memcpy(write_ptr[0], write_str, write_len);//NULL文字はコピーしない
