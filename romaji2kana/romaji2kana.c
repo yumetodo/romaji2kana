@@ -91,7 +91,7 @@ static inline char_cvt_error_t char_cvt_process_consonants_next_1(
 	}
 	const size_t table_pos[] = { char_cvt_is_consonants_next_1(read_ptr[0][0]), char_cvt_is_vowels(read_ptr[0][1]) };
 	if (SIZE_MAX == table_pos[0] || SIZE_MAX == table_pos[1]) return CHAR_CVT_NO_CONVERSION;
-	return char_cvt_process_impl_write_str(char_cvt_table_01[table_pos[0]][table_pos[1]], read_ptr, write_ptr, write_end, 1);
+	return char_cvt_process_impl_write_str(char_cvt_table_01[table_pos[0]][table_pos[1]], read_ptr, write_ptr, write_end, 2);
 }
 
 static const char char_cvt_consonants_table_1y[] = "knmrgzjbpfx";
