@@ -5,7 +5,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON) #...is required...
 set(CMAKE_C_EXTENSIONS OFF) #...without compiler extensions like gnu++11
 
 ## Set our project name
-project(romaji2kana)
+project(romaji2kana_sample)
 
 set(romaji2kana_src 
 	romaji2kana/romaji2kana.c
@@ -23,4 +23,4 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUC)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wno-long-long -pedantic")
 endif()
 ## Define the executable
-add_executable(romaji2kana ${romaji2kana_src})
+add_executable(romaji2kana_sample ${romaji2kana_src})
