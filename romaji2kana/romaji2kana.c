@@ -109,7 +109,7 @@ static const char* const char_cvt_table_1y[][countof(char_cvt_vowels_table)] = {
 
 	{ "ﾊﾟ", 	"ﾋﾟ", 	"ﾌﾟ", 	"ﾍﾟ", 	"ﾎﾟ" },	//p
 
-	{ "ファ", 	"フィ", 	"ﾌ", 	"ﾌｪ", 	"ﾌｫ" },	//f
+	{ "ﾌｧ", 	"ﾌｨ", 	"ﾌ", 	"ﾌｪ", 	"ﾌｫ" },	//f
 	{ "ｧ", 	"ｨ", 	"ｩ", 	"ｪ", 	"ｫ" }	//x
 };
 static_assert(countof(char_cvt_consonants_table_1y) == countof(char_cvt_table_1y) + 1, "error");
@@ -121,7 +121,7 @@ static const char* const char_cvt_table_1y_y[][countof(char_cvt_vowels_table)] =
 	{ "ﾘｬ", 	nullptr, 	"ﾘｭ", 	nullptr, 	"ﾘｮ" },	//r
 
 	{ "ｷﾞｬ", 	nullptr, 	"ｷﾞｭ", 	nullptr, 	"ｷﾞｮ" },	//g
-	{ "ｼﾞｬ", 	nullptr, 	"ｼﾞｭ", 	"ジェ", 		"ｼﾞｮ" },	//z
+	{ "ｼﾞｬ", 	nullptr, 	"ｼﾞｭ", 	"ｼﾞｪ", 		"ｼﾞｮ" },	//z
 	{ "ｼﾞｬ", 	nullptr, 	"ｼﾞｭ", 	"ｼﾞｪ", 		"ｼﾞｮ" },	//j
 	{ "ﾋﾞｬ", 	nullptr, 	"ﾋﾞｭ", 	nullptr, 	"ﾋﾞｮ" },	//b
 
