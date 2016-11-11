@@ -1,4 +1,4 @@
-#ifndef INC_ROMAJI2KANA_H_
+ï»¿#ifndef INC_ROMAJI2KANA_H_
 #define INC_ROMAJI2KANA_H_
 #include "restrict.h"
 typedef enum {
@@ -9,27 +9,27 @@ typedef enum {
 	CHAR_CVT_ERROR_SIZE
 } char_cvt_error_t;
 /**
-* @brief ƒ[ƒ}š‚ğ”¼ŠpƒJƒ^ƒJƒi‚É•ÏŠ·‚µ‚Ü‚·
-* @param[in] src •ÏŠ·‚·‚é•¶š—ñ
-* @param src_len •ÏŠ·‚·‚é•¶š—ñ‚Ì’·‚³
-* @param[out] buf •ÏŠ·Œ‹‰Ê‚ğŠi”[‚·‚é—Ìˆæ‚Ìæ“ª‚Ö‚Ìƒ|ƒCƒ“ƒ^
-* @param buf_len •ÏŠ·Œ‹‰Ê‚ğŠi”[‚·‚é—Ìˆæ‚Ì‘å‚«‚³
-* @param[out] rest_src –¢•ÏŠ·•”•ª‚Ìæ“ª‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğŠi”[‚·‚é•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^Boptional
-* @param[out] rest_buf •ÏŠ·Œã‚Ì•¶š—ñ‚ÌI’[(NULL•¶š)‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğŠi”[‚·‚é•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^Boptional
-* @return ƒGƒ‰[ƒR[ƒhB•¶š—ñ‰»‚·‚é‚É‚Í``format_char_cvt_error``‚ğg‚¤
+* @brief ãƒ­ãƒ¼ãƒå­—ã‚’åŠè§’ã‚«ã‚¿ã‚«ãƒŠã«å¤‰æ›ã—ã¾ã™
+* @param[in] src å¤‰æ›ã™ã‚‹æ–‡å­—åˆ—
+* @param src_len å¤‰æ›ã™ã‚‹æ–‡å­—åˆ—ã®é•·ã•
+* @param[out] buf å¤‰æ›çµæœã‚’æ ¼ç´ã™ã‚‹é ˜åŸŸã®å…ˆé ­ã¸ã®ãƒã‚¤ãƒ³ã‚¿
+* @param buf_len å¤‰æ›çµæœã‚’æ ¼ç´ã™ã‚‹é ˜åŸŸã®å¤§ãã•
+* @param[out] rest_src æœªå¤‰æ›éƒ¨åˆ†ã®å…ˆé ­ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã€‚optional
+* @param[out] rest_buf å¤‰æ›å¾Œã®æ–‡å­—åˆ—ã®çµ‚ç«¯(NULLæ–‡å­—)ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã€‚optional
+* @return ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã€‚æ–‡å­—åˆ—åŒ–ã™ã‚‹ã«ã¯``format_char_cvt_error``ã‚’ä½¿ã†
 */
 char_cvt_error_t char_cvt_romaji2kana(
 	const char* RESTRICT src,
 	const size_t src_len,
 	char* RESTRICT buf,
 	const size_t buf_len,
-	const char** RESTRICT const rest_src,//–¢•ÏŠ·•”•ª‚Ìæ“ª‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğŠi”[‚·‚é•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^
-	char** RESTRICT const rest_buf//•ÏŠ·Œã‚Ì•¶š—ñ‚ÌI’[(NULL•¶š)‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğŠi”[‚·‚é•Ï”‚Ö‚Ìƒ|ƒCƒ“ƒ^
+	const char** RESTRICT const rest_src,//æœªå¤‰æ›éƒ¨åˆ†ã®å…ˆé ­ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã¸ã®ãƒã‚¤ãƒ³ã‚¿
+	char** RESTRICT const rest_buf//å¤‰æ›å¾Œã®æ–‡å­—åˆ—ã®çµ‚ç«¯(NULLæ–‡å­—)ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã¸ã®ãƒã‚¤ãƒ³ã‚¿
 );
 /**
-* @brief ƒGƒ‰[ƒR[ƒh‚ğ•¶š—ñ‰»‚µ‚Ü‚·
-* @param e ƒGƒ‰[ƒR[ƒh
-* @return ƒGƒ‰[•¶š—ñ
+* @brief ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ã‚’æ–‡å­—åˆ—åŒ–ã—ã¾ã™
+* @param e ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+* @return ã‚¨ãƒ©ãƒ¼æ–‡å­—åˆ—
 */
 const char* format_char_cvt_error(char_cvt_error_t e);
 #endif //INC_ROMAJI2KANA_H_
